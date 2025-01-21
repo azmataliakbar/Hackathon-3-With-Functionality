@@ -169,26 +169,26 @@ export default function Header() {
               <nav className="flex flex-col gap-4 pl-2 bg-gray-200">
                 <Link
                   href="/"
-                  className="text-gray-700 hover:text-white font-bold text-lg hover:underline hover:scale-y-125"
+                  className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
                 >
                   Home
                 </Link>
                 <Link
                   href="/ProductsDetail"
-                  className="text-gray-700 hover:text-blue-600 font-bold text-lg hover:underline hover:scale-125"
+                  className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
                 >
                   Shop
                 </Link>
 
                 <Link
                   href="/About"
-                  className="text-gray-700 hover:text-white font-bold text-lg hover:underline hover:scale-y-125"
+                  className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
                 >
                   About
                 </Link>
                 <Link
                   href="/Contact"
-                  className="text-gray-700 hover:text-white font-bold text-lg hover:underline hover:scale-y-125"
+                  className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
                 >
                   Contact
                 </Link>
