@@ -33,7 +33,7 @@ const CartPage = () => {
                     <span className="text-red-600 text-2xl">★★★★★</span>
                     <p className="text-red-500 font-bold text-2xl">Price: $ {item.price.toFixed(2)}</p>
                   </div>
-                  <div className="relative h-[20px] w-[200px] sm:h-[150px] sm:w-[150px] md:h-[150px] md:w-[150px] lg:h-[150px] lg:w-[150px]">
+                  <div className="relative h-[150px] w-[150px] sm:h-[150px] sm:w-[150px] md:h-[150px] md:w-[150px] lg:h-[150px] lg:w-[150px]">
                     <Image
                       src={item.image}
                       alt={item.name}
