@@ -5,7 +5,7 @@ export default function Set1() {
   return (
     <div className="bg-gray-200 min-h-screen">
       <main className="container mx-auto py-10">
-        <h2 className="text-3xl font-bold mb-8 text-center text-black hover:scale-150 hover:text-red-500">
+        <h2 className="text-3xl font-bold mb-8 text-center text-black hover:scale-y-150 hover:text-red-500">
           Top Picks For You
         </h2>
         <p className="text-center mb-8 text-black hover:scale-150 hover:text-blue-500">

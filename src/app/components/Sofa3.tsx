@@ -22,7 +22,7 @@ export default function Sofa3() {
             <h2 className="text-xl font-bold mb-4 text-black hover:scale-150 hover:text-red-500">
               New Arrivals
             </h2>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-black hover:scale-150 hover:text-blue-600">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-black hover:scale-y-150 hover:text-red-500">
               Asgaard Sofa
             </h1>
             <div className="flex justify-center md:justify-start">

@@ -15,7 +15,7 @@ export default function Sofa1() {
       <main className="bg-gray-200">
         <div className="container mx-auto py-2 flex flex-col md:flex-row justify-center md:justify-around items-center">
           <div className="flex flex-col justify-center md:ml-32 text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black hover:scale-150 hover:text-red-500">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black hover:scale-y-150 hover:text-red-500">
               Rocket Single Seater
             </h2>
             <Link href="/ProductsDetail">

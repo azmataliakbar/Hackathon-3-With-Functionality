@@ -39,7 +39,7 @@ const ProductFilter = () => {
 
       return (
         <div className="bg-gray-300 p-4">
-          <h1 className="text-black text-2xl sm:text-3xl font-bold text-center mb-4">
+          <h1 className="text-black hover:text-red-500 hover:scale-y-150 text-2xl sm:text-3xl font-bold text-center mb-4">
             View Products By Category
           </h1>
     

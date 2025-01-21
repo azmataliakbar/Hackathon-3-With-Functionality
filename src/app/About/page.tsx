@@ -152,12 +152,6 @@ function ProductPage() {
           </div>
 
           
-
-
-
-
-
-
           {/* Right Section */}
           <div className="flex-1 bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-2xl sm:text-xl font-bold mb-4 text-black hover:text-red-500 hover:scale-y-150">Recent Posts</h2>

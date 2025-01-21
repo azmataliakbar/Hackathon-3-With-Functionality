@@ -6,7 +6,7 @@ export default function Sofa2() {
     <div className="bg-gray-100 min-h-screen">
       <main className="container mx-auto py-10 px-4">
         <div className="flex flex-col items-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-black hover:text-red-500 hover:scale-150">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-black hover:text-red-500 hover:scale-y-150">
             Our Products
           </h2>
 
