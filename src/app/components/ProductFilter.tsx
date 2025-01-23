@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 
+
+
 const products = [
   { id: 1, category: 'Chair', slug: "unique-product-slug", image: 'https://plus.unsplash.com/premium_photo-1668073439372-2ceafa1222b7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { id: 2, category: 'Chair', slug: "unique-product-slug", image: 'https://plus.unsplash.com/premium_photo-1681022527718-81786d7873bd?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
@@ -72,6 +74,9 @@ const ProductFilter = () => {
                 <h2 className="text-center text-gray-500 text-sm sm:text-base font-bold mt-2">
                   {product.category}
                 </h2>
+                
+                
+
               </div>
             ))}
           </div>

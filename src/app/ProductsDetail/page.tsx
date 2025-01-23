@@ -24,6 +24,7 @@ export default async function Home() {
     isFeaturedProduct
       }
     `);
+    
   } catch (error) {
     console.error("Error fetching products:", error);
   }
@@ -46,3 +47,6 @@ export default async function Home() {
     </div>
   );
 }
+
+
+//  <ProductGrid products={products} />

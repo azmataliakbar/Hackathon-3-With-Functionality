@@ -10,7 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 type Product = {
-  _id: string;
+  id: string;
   name: string;
   slug: string;
   description: string;
@@ -50,7 +50,7 @@ export default async function Home() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <div key={product._id} className="border rounded-lg p-4 shadow-md text-blue-300">
+          <div key={product.id} className="border rounded-lg p-4 shadow-md text-blue-300">
             <h2 className="text-xl font-semibold mb-2">{product.name || 'Unnamed Product'}</h2>
             {product.image && (
               <div className="relative w-full h-64 mb-4">

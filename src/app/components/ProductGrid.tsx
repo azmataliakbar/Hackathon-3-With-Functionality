@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface Product {
- id:string,
+  id:string,
   name: string;
   slug: string;
   image: string;
@@ -23,7 +23,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-10 px-4">
       {products.map((item) => (
-        <ProductCard key={item.slug} product={item} />
+        <ProductCard key={item.id} product={item} />
       ))}
     </div>
   );
@@ -67,32 +67,9 @@ function ProductCard({ product }: { product: Product }) {
           {isExpanded ? "Read Less" : "Read More"}
         </button>
 
-        <div className="text-sm text-gray-600 mt-auto mb-4">
+            <div className="text-sm text-gray-600 mt-auto mb-4">
 
-          {/* <p className="text-orange-500 font-bold">
-            Rating: {product.rating} ({product.ratingCount} reviews)
-          </p>
-          <p className="text-green-500 font-bold">
-            Tags: {product.tags.join(", ") || "N/A"}
-          </p>
-          <p className="text-purple-600 font-bold">
-            Sizes: {product.sizes.length > 0 ? product.sizes.join(", ") : "Check Details"}
-          </p>
-          <p className="text-orange-300 font-bold">ID: {product._id}</p>
-          <p className="text-blue-500 font-bold">
-            Discount:{" "}
-            {product.discountPercentage > 0
-              ? `${product.discountPercentage}%`
-              : "Check Details"}
-          </p>
-          <p className="text-red-500 font-bold">
-            Original Price: ${product.priceWithoutDiscount.toFixed(2)}
-          </p>
-          <p className="text-xl font-bold text-gray-800 mt-2">
-            Final Price: ${product.price.toFixed(2)}
-          </p> */}
-
-            {/* <p className="text-gray-300 mb-2">{product.description || 'No description available'}</p> */}
+            <p className="text-lg font-bold text-gray-400">ID: {product.id}</p>
             <p className="text-xl font-bold mb-1 text-red-500">
               Price: $ {typeof product.price === 'number' ? product.price.toFixed(2) : parseFloat(product.price as string).toFixed(2) || 'N/A'}
             </p>
@@ -102,8 +79,7 @@ function ProductCard({ product }: { product: Product }) {
             <p className="text-lg font-bold text-blue-500 mb-1">Stock Level: {typeof product.stockLevel === 'number' ? product.stockLevel : 'N/A'}</p>
             <p className="text-lg font-bold text-yellow-600">Featured: {product.isFeaturedProduct ? 'Yes' : 'No'}</p>
 
-
-        </div>
+            </div>
         
         <Link href={`/products/${productSlug}`}>
           <button className="bg-blue-500 font-bold text-white py-2 px-4 rounded-md w-full hover:bg-orange-400">
@@ -117,3 +93,4 @@ function ProductCard({ product }: { product: Product }) {
 }
 
 
+// line 41 const productSlug = product.slug || product.id;

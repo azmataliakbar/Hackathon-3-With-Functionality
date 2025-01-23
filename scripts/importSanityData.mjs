@@ -1,3 +1,5 @@
+// scripts/importSanityData.mjs
+
 import { createClient } from '@sanity/client';
 import axios from 'axios';
 import dotenv from 'dotenv';
@@ -12,7 +14,7 @@ dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: dataset = process.env.NEXT_PUBLIC_SANITY_DATASET,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
   useCdn: false, // Set to false if statically generating pages, using ISR or tag-based revalidation
   token:process.env.SANITY_API_TOKEN, // Add your Sanity token here
@@ -32,8 +34,8 @@ async function uploadImageToSanity(imageUrl) {
     const asset = await client.assets.upload('image', buffer, {
       filename: imageUrl.split('/').pop(),
     });
-    console.log(`Image uploaded successfully: ${asset._id}`);
-    return asset._id;
+    console.log(`Image uploaded successfully: ${asset.id}`);
+    return asset.id;
   } catch (error) {
     console.error('Failed to upload image:', imageUrl, error);
     return null;
@@ -79,7 +81,7 @@ async function importData() {
 
       console.log('Uploading product to Sanity:', sanityProduct.name);
       const result = await client.create(sanityProduct);
-      console.log(`Product uploaded successfully: ${result._id}`);
+      console.log(`Product uploaded successfully: ${result.id}`);
     }
 
     console.log('Data import completed successfully!');
