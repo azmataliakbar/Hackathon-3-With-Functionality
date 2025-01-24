@@ -1,4 +1,7 @@
+// src/app/layout.tsx
+
 import type { Metadata } from "next";
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { CartProvider } from "@/app/context/CartContext";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -25,12 +28,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <CartProvider>{children}</CartProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <header className="flex justify-between items-center p-4 bg-gray-500 text-white">
+            <div>
+              <h1 className="text-2xl font-bold">Welcome</h1>
+            </div>
+            <div>
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+            </div>
+          </header>
+          <main>
+            <CartProvider>{children}</CartProvider>
+          </main>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
+

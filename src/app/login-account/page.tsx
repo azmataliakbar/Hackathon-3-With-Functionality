@@ -108,8 +108,9 @@ const LoginPage = () => {
       <div className="text-center mt-8">
         <p className="text-white text-sm">
           For any issues, contact us at:{" "}
-          <span className="font-bold text-yellow-300">support@globalshopping.com</span> or{" "}
-          <span className="font-bold text-yellow-300">+1-234-567-890</span>
+          <span className="font-bold text-yellow-300">email: support@heavenhills.com</span> or{" "}
+          <br />
+          <span className="font-bold text-yellow-300">ph: +92-333-223-6799</span>
         </p>
       </div>
     </main>

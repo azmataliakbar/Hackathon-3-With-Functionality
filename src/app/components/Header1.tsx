@@ -91,7 +91,7 @@ export default function Header() {
 
           {/* Desktop Icons */}
           <div className="hidden lg:flex gap-4 pr-10">
-            <Link href="/LoginAccount">
+            <Link href="https://moral-longhorn-69.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F">
               <Image
                 src="/icon1.png"
                 alt="Login Account"
@@ -195,7 +195,7 @@ export default function Header() {
 
                 {/* Mobile Icons (Login & Cart) */}
                 <div className="flex gap-4 mt-4">
-                  <Link href="/LoginAccount">
+                  <Link href="https://moral-longhorn-69.accounts.dev/sign-in?redirect_url=http%3A%2F%2Flocalhost%3A3000%2F">
                     <Image
                       src="/icon1.png"
                       alt="Login Account"
