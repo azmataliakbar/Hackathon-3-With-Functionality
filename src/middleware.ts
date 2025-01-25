@@ -16,20 +16,7 @@ export const config = {
 }
 
 
-// import { clerkMiddleware } from '@clerk/nextjs/server';
 
-// export default clerkMiddleware();
-
-// export const config = {
-//   matcher: [
-//     /*
-//       Add paths to protect or include middleware, for example:
-//       '/((?!api|_next|static|favicon.ico).*)',
-//       This will include all pages except API routes and static assets
-//     */
-//     '/((?!_next|static|favicon.ico).*)',
-//   ],
-// };
 
 
 

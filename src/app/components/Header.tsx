@@ -82,6 +82,12 @@ export default function Header() {
               About
             </Link>
             <Link
+                  href="/admin"
+                  className="text-gray-700 hover:text-blue-600 font-bold text-xl hover:underline hover:scale-125"
+                >
+                  Admin
+                </Link>
+            <Link
               href="/Contact"
               className="text-gray-700 hover:text-blue-600 text-xl font-bold hover:underline hover:scale-125"
             >
@@ -185,6 +191,12 @@ export default function Header() {
                   className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
                 >
                   About
+                </Link>
+                <Link
+                  href="/admin"
+                  className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
+                >
+                  Admin
                 </Link>
                 <Link
                   href="/Contact"
