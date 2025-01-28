@@ -82,7 +82,7 @@ export default function Header() {
               About
             </Link>
             <Link
-                  href="/admin"
+                  href="/login-account"
                   className="text-gray-700 hover:text-blue-600 font-bold text-xl hover:underline hover:scale-125"
                 >
                   Admin
@@ -193,7 +193,7 @@ export default function Header() {
                   About
                 </Link>
                 <Link
-                  href="/admin"
+                  href="/login-account"
                   className="text-gray-700 hover:text-blue-500 font-bold text-lg hover:underline hover:scale-y-125"
                 >
                   Admin

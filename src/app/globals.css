@@ -22,9 +22,17 @@ body {
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    overflow-wrap: break-word; /* Fallback */
+    word-wrap: break-word;
+  }
+
+  @supports (text-wrap: balance) {
+    .text-balance {
+      text-wrap: balance; /* Use only if supported */
+    }
   }
 }
+
 
 
 .custom-image {

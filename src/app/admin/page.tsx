@@ -1,124 +1,117 @@
-// /app/admin/page.tsx
-
 "use client";
 
-import { useAuth } from "@clerk/nextjs";
+
+import { useUser, useClerk } from "@clerk/nextjs"; // Import useClerk
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import Header1 from "@/app/components/Header1"; // Adjust the import path as needed
+import OurPromise from "@/app/components/OurPromise"; // Adjust the import path as needed
+import Footer from "@/app/components/Footer"; // Adjust the import path as needed
 
-// Define proper types for user and product
-interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-}
-
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-}
-
-// Extend ActJWTClaim to include publicMetadata
-interface ActJWTClaim {
-  firstName?: string;
-  publicMetadata?: {
-    role?: string;
-  };
-}
-
-const AdminPage = () => {
-  const { actor, isLoaded, isSignedIn } = useAuth();
+export default function AdminPage() {
+  const { user, isSignedIn, isLoaded } = useUser();
+  const { signOut } = useClerk(); // Use the useClerk hook to access signOut
   const router = useRouter();
-  const [users, setUsers] = useState<User[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
 
-  // Show loading state until Clerk data is loaded
+  // Show loading state while Clerk is loading the user data
   if (!isLoaded) return <div>Loading...</div>;
 
-  // Type assertion for actor
-  const currentActor = actor as ActJWTClaim;
-
-  // Redirect to login if the user is not signed in or not an admin
-  if (!isSignedIn || !actor || currentActor?.publicMetadata?.role !== "admin") {
-    router.push("/login-account");
+  // Handle redirect to login page if not signed in or role is not admin
+  if (!isSignedIn || user?.publicMetadata?.role !== "admin") {
+    router.replace("/login-account");
     return null;
   }
 
-  // Fetch users for user management
-  const fetchUsers = async () => {
-    const fetchedUsers = await fetch("/api/users");
-    const data = await fetchedUsers.json();
-    setUsers(data);
+  // Handle sign-out
+  const handleSignOut = () => {
+    signOut(() => router.push("/")); // Sign out and redirect to the homepage
   };
 
-  // Fetch products for product management
-  const fetchProducts = async () => {
-    const fetchedProducts = await fetch("/api/products");
-    const data = await fetchedProducts.json();
-    setProducts(data);
-  };
-
-  // Handle adding a new user (example logic)
-  const handleAddUser = async () => {
-    console.log("Add user logic here");
-    await fetchUsers();
-  };
-
-  // Handle adding a new product (example logic)
-  const handleAddProduct = async () => {
-    console.log("Add product logic here");
-    await fetchProducts();
-  };
-
-  // Admin Panel Content
   return (
-    <div>
-      <h1>Admin Panel</h1>
-      <p>Welcome, {currentActor?.firstName || "Guest"}!</p>
-      <p>Role: {currentActor?.publicMetadata?.role || "No role assigned"}</p>
+    <>
+      <Header1 />
+      <div className="p-6 bg-gray-300">
+        <h1 className="text-3xl font-bold text-blue-600">Welcome Admin</h1>
+        <h2 className="mb-10 mt-4 text-3xl underline font-bold text-yellow-700">Admin Dashboard</h2>
 
-      <div>
-        <h2>User Management</h2>
-        <button onClick={handleAddUser}>Add User</button>
-        <button onClick={fetchUsers}>Fetch Users</button>
-        <ul>
-          {users.length > 0 ? (
-            users.map((user) => (
-              <li key={user.id}>
-                {user.firstName} {user.lastName}
-              </li>
-            ))
-          ) : (
-            <li>No users found</li>
-          )}
-        </ul>
-      </div>
+        {/* Admin Navigation Bar */}
+        <nav className="mb-10">
+          <ul className="flex space-x-4">
+            <li>
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                onClick={() => router.push("/admin/inventory")}
+              >
+                Inventory
+              </button>
+            </li>
+            <li>
+              <button
+                className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                onClick={() => router.push("/admin/orders")}
+              >
+                Orders
+              </button>
+            </li>
+            <li>
+              <button
+                className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+                onClick={() => router.push("/admin/users")}
+              >
+                Users
+              </button>
+            </li>
+            <li>
+              <button
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                onClick={handleSignOut} // Call handleSignOut on click
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </nav>
 
-      <div>
-        <h2>Product Management</h2>
-        <button onClick={handleAddProduct}>Add Product</button>
-        <button onClick={fetchProducts}>Fetch Products</button>
-        <ul>
-          {products.length > 0 ? (
-            products.map((product) => (
-              <li key={product.id}>
-                {product.name} - ${product.price}
-              </li>
-            ))
-          ) : (
-            <li>No products found</li>
-          )}
-        </ul>
+        {/* Admin Dashboard Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Inventory Summary */}
+          <div className="p-4 bg-white rounded-lg shadow">
+            <h3 className="text-xl font-bold text-gray-800">Inventory</h3>
+            <p className="text-gray-600">Total Products: 21</p>
+            <button
+              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onClick={() => router.push("/admin/inventory")}
+            >
+              Manage Inventory
+            </button>
+          </div>
+
+          {/* Orders Summary */}
+          <div className="p-4 bg-white rounded-lg shadow">
+            <h3 className="text-xl font-bold text-gray-800">Orders</h3>
+            <p className="text-gray-600">Total Orders: 15</p>
+            <button
+              className="mt-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              onClick={() => router.push("/admin/orders")}
+            >
+              Manage Orders
+            </button>
+          </div>
+
+          {/* Users Summary */}
+          <div className="p-4 bg-white rounded-lg shadow">
+            <h3 className="text-xl font-bold text-gray-800">Users</h3>
+            <p className="text-gray-600">Total Users: 50</p>
+            <button
+              className="mt-2 px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+              onClick={() => router.push("/admin/users")}
+            >
+              Manage Users
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+      <OurPromise />
+      <Footer />
+    </>
   );
-};
-
-export default AdminPage;
-
-
-
-
-
-
+}
