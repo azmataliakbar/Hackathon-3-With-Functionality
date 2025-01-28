@@ -25,7 +25,7 @@ export default function OrdersPage() {
     <>
         <Header1 />
     <div className="p-6">
-      <h1 className="text-3xl font-bold text-gray-100">Order Management: Under Construction</h1>
+      <h1 className="lg:text-3xl text-lg font-bold text-yellow-200">Order Management: Under Construction</h1>
       <ul className="mt-6">
         {orders.map((order) => (
           <li key={order.id} className="mb-4 p-4 bg-white rounded-lg shadow">

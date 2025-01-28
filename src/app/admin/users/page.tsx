@@ -26,7 +26,7 @@ export default function UsersPage() {
     <>
             <Header1 />
     <div className="p-6">
-      <h1 className="text-3xl font-bold text-gray-100">User Management: Under Construction</h1>
+      <h1 className="lg:text-3xl text-lg font-bold text-yellow-200">User Management: Under Construction</h1>
       <ul className="mt-6">
         {users.map((user) => (
           <li key={user.id} className="mb-4 p-4 bg-white rounded-lg shadow">

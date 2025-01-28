@@ -35,9 +35,9 @@ export default function RootLayout({
         >
           <header className="flex justify-between items-center p-4 bg-gray-500 text-white">
             <div>
-              <h1 className="text-2xl font-bold">Welcome</h1>
+              <h1 className="text-3xl font-bold hover:text-y-150 hover:text-yellow-300 hover:scale-y-150">Welcome</h1>
             </div>
-            <div>
+            <div className="font-bold text-3xl hover:scale-125 hover:text-yellow-300">
               <SignedOut>
                 <SignInButton />
               </SignedOut>

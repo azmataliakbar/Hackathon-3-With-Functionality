@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Header1 from '../../components/Header1';
 import OurPromise from '../../components/OurPromise';
 import Footer from '../../components/Footer'
+import axios from "axios";
 
 interface Product {
   id: string;
@@ -22,18 +23,25 @@ export default function InventoryPage() {
   const [products, setProducts] = useState<Product[]>([]);
 
   // Fetch products from the API when the component mounts
-  useEffect(() => {
-    fetch("https://template-0-beta.vercel.app/api/product") // Replace with your actual API endpoint
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error fetching products:", error));
-  }, []);
+  
+
+useEffect(() => {
+  axios.get("https://template-0-beta.vercel.app/api/product")
+    .then((response) => {
+      console.log(response.data); // Log the data
+      setProducts(response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
+}, []);
+
 
   return (
     <>
     <Header1 />
     <div className="p-6">
-      <h1 className="text-3xl font-bold text-yellow-200">Inventory Management: Under Construction</h1>
+      <h1 className="lg:text-3xl text-lg font-bold text-yellow-200">Inventory Management: Under Construction</h1>
       <ul className="mt-6">
         {products.map((product) => (
           <li key={product.id} className="mb-4 p-4 bg-white rounded-lg shadow">

@@ -48,5 +48,3 @@ export default async function Home() {
   );
 }
 
-
-//  <ProductGrid products={products} />
