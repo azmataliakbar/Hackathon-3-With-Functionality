@@ -7,6 +7,19 @@ import ShopImages from "../components/ShopImages"
 import OurPromise from "../components/OurPromise"
 import Last from "../components/Footer"
 
+interface Product {
+  id: string
+  name: string
+  slug: string
+  description: string
+  price: number | string
+  discountPercentage: number | string
+  image: string
+  category: string
+  stockLevel: number
+  isFeaturedProduct: boolean
+}
+
 export default async function Home() {
   let products = []
   try {
@@ -21,12 +34,12 @@ export default async function Home() {
         "image": image.asset->url,
         category,
         stockLevel,
-        isFeaturedProduct
+        isFeaturedProduct,
       }
     `)
 
     // Deduplicate products based on id
-    const uniqueProducts = Array.from(new Map(products.map((item) => [item.id, item])).values())
+    const uniqueProducts = Array.from(new Map(products.map((item: Product) => [item.id, item])).values())
     products = uniqueProducts
 
     console.log(`Fetched ${products.length} unique products`)
