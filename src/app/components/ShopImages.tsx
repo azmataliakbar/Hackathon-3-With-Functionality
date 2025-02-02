@@ -59,11 +59,11 @@ export default function Home() {
             />
           </div>
           <div className="text-black font-bold hover:scale-150 hover:text-blue-600">
-            Showing 1-21 of 42 results
+            Showing 1-21 of 21 results
           </div>
           <div className="flex flex-col sm:flex-row items-center space-x-4 gap-4 sm:gap-0">
             <button className="text-black font-bold hover:scale-125 hover:text-blue-600">Show</button>
-            <input type="text" placeholder="16" className="border border-gray-300 px-1 py-1 w-[40px] rounded-md text-center text-sm" />
+            <input type="text" placeholder="21" className="border border-gray-300 px-1 py-1 w-[40px] rounded-md text-center text-sm" />
             <button className="text-black font-bold hover:scale-125 hover:text-blue-600">Sort By</button>
             <input type="text" placeholder="Default" className="border border-gray-300 px-1 py-1 w-[80px] rounded-md text-center text-sm" />
           </div>

@@ -75,10 +75,11 @@ export default function Footer() {
 
         {/* Divider */}
         <hr className="border-t border-gray-400 my-4 w-3/4 mx-auto" />
-        <p className="text-center text-xs mt-8 text-gray-900 hover:scale-110 md:hover:scale-150 lg:hover:scale-150 hover:text-blue-500">
-          © 2024 Meubel House. All rights reserved.
-          <p className="text-center text-gray-500 text-xs">Author: Azmat Ali</p>
+        <p className="flex justify-center items-center gap-x-8 text-xs mt-8 text-gray-900 hover:scale-110 md:hover:scale-150 lg:hover:scale-150 hover:text-blue-500">
+        <span>© 2025 Heaven Hills Furniture.</span>
+        <span>All rights reserved.</span>
         </p>
+          <p className="text-center text-gray-400 text-xs font-bold">Author: Azmat Ali</p>
       </div>
     </footer>
   );
