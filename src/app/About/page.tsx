@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Header1 from '../components/Header1';
 import Last from '../components/Footer'
 
+
 function ProductPage() {
   return (
     <div className="bg-gray-200">

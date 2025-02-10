@@ -26,6 +26,8 @@ export default function AdminPage() {
     signOut(() => router.push("/")); // Sign out and redirect to the homepage
   };
 
+  
+
   return (
     <>
       <Header1 />
@@ -75,8 +77,8 @@ export default function AdminPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Inventory Summary */}
           <div className="p-4 bg-white rounded-lg shadow">
-            <h3 className="text-xl font-bold text-gray-800 hover:scale-y-150 hover:text-red-500">Inventory</h3>
-            <p className="text-gray-600">Total Products: 21</p>
+            <h3 className="text-xl font-bold text-gray-400 hover:scale-y-150 hover:text-red-500">Inventory</h3>
+            <p className="text-gray-600 font-bold">Total Products: 21</p>
             <button
               className="mt-2 px-4 py-2 font-bold bg-blue-500 text-white rounded hover:bg-blue-600 hover:scale-y-150"
               onClick={() => router.push("/admin/inventory")}
@@ -87,8 +89,8 @@ export default function AdminPage() {
 
           {/* Orders Summary */}
           <div className="p-4 bg-white rounded-lg shadow">
-            <h3 className="text-xl font-bold text-gray-800 hover:scale-y-150 hover:text-red-500">Orders</h3>
-            <p className="text-gray-600">Total Orders: 15</p>
+            <h3 className="text-xl font-bold text-gray-400 hover:scale-y-150 hover:text-red-500">Orders</h3>
+            <p className="text-gray-600 font-bold">Total Orders: 12</p>
             <button
               className="mt-2 px-4 py-2 font-bold bg-green-500 text-white rounded hover:bg-green-600 hover:scale-y-150"
               onClick={() => router.push("/admin/orders")}
@@ -99,8 +101,8 @@ export default function AdminPage() {
 
           {/* Users Summary */}
           <div className="p-4 bg-white rounded-lg shadow">
-            <h3 className="text-xl font-bold text-gray-800 hover:scale-y-150 hover:text-red-500">Users</h3>
-            <p className="text-gray-600">Total Users: 50</p>
+            <h3 className="text-xl font-bold text-gray-400 hover:scale-y-150 hover:text-red-500">Users</h3>
+            <p className="text-gray-600 font-bold">Total Users: 12</p>
             <button
               className="mt-2 px-4 py-2 font-bold bg-purple-500 text-white rounded hover:bg-purple-600 hover:scale-y-150"
               onClick={() => router.push("/admin/users")}

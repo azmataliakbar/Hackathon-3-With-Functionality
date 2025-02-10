@@ -1,47 +1,206 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Header1 from '../../components/Header1';
+import Header1 from "../../components/Header1";
+import Buttons from "../../components/InventoryOrderUserButtons";
 import OurPromise from '../../components/OurPromise';
-import Footer from '../../components/Footer'
+import Footer from "../../components/Footer";
 
-// Define the type for a user
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-}
-
-export default function UsersPage() {
-  const [users, setUsers] = useState<User[]>([]); 
-
-  useEffect(() => {
-    fetch("/api/users") // Replace with your API endpoint
-      .then((response) => response.json())
-      .then((data) => setUsers(data));
-  }, []);
+const CustomersList = () => {
+  // Mock data for customers' order details
+  const customers = [
+    {
+      id: 1,
+      srNo: 1,
+      name: "John Doe",
+      phone: "+123456789",
+      email: "john.doe@example.com",
+      date: "2025-01-15",
+      performance: "Low",
+      status: "Active",
+    },
+    {
+      id: 2,
+      srNo: 2,
+      name: "Jane Smith",
+      phone: "+987654321",
+      email: "jane.smith@example.com",
+      date: "2025-01-16",
+      performance: "Medium",
+      status: "Active",
+    },
+    {
+      id: 3,
+      srNo: 3,
+      name: "Bob Johnson",
+      phone: "+1122334455",
+      email: "bob.johnson@example.com",
+      date: "2025-01-17",
+      performance: "High",
+      status: "Active",
+    },
+    {
+      id: 4,
+      srNo: 4,
+      name: "Joseph Anthony",
+      phone: "+123456789",
+      email: "jos.ant@example.com",
+      date: "2025-01-18",
+      performance: "Low",
+      status: "Active",
+    },
+    {
+      id: 5,
+      srNo: 5,
+      name: "Philip Cant",
+      phone: "+987654321",
+      email: "php.cnt@example.com",
+      date: "2025-01-19",
+      performance: "Medium",
+      status: "Active",
+    },
+    {
+      id: 6,
+      srNo: 6,
+      name: "Kelvin Butler",
+      phone: "+1122334455",
+      email: "klvn.btlr@example.com",
+      date: "2025-01-20",
+      performance: "High",
+      status: "Active",
+    },
+    {
+      id: 7,
+      srNo: 7,
+      name: "Paul Daniel",
+      phone: "+123456789",
+      email: "paul.dnl@example.com",
+      date: "2025-01-21",
+      performance: "Low",
+      status: "Active",
+    },
+    {
+      id: 8,
+      srNo: 8,
+      name: "Bob Baker",
+      phone: "+987654321",
+      email: "bob.bkr@example.com",
+      date: "2025-01-22",
+      performance: "Medium",
+      status: "Active",
+    },
+    {
+      id: 9,
+      srNo: 9,
+      name: "Ashly Hamton",
+      phone: "+1122334455",
+      email: "ash.hmtn@example.com",
+      date: "2025-01-23",
+      performance: "High",
+      status: "Active",
+    },
+    {
+      id: 10,
+      srNo: 10,
+      name: "Domnic Filnay",
+      phone: "+123456789",
+      email: "dom.flny@example.com",
+      date: "2025-01-24",
+      performance: "Low",
+      status: "Active",
+    },
+    {
+      id: 11,
+      srNo: 11,
+      name: "Keneth Willis",
+      phone: "+987654321",
+      email: "knth.wil@example.com",
+      date: "2025-01-25",
+      performance: "Medium",
+      status: "Active",
+    },
+    {
+      id: 12,
+      srNo: 12,
+      name: "Robin Johnathon",
+      phone: "+1122334455",
+      email: "rob.john@example.com",
+      date: "2025-01-26",
+      performance: "High",
+      status: "Active",
+    },
+  ];
 
   return (
-    <>
-            <Header1 />
-    <div className="p-6">
-      <h1 className="lg:text-3xl text-lg font-bold text-yellow-200">User Management: Under Construction</h1>
-      <ul className="mt-6">
-        {users.map((user) => (
-          <li key={user.id} className="mb-4 p-4 bg-white rounded-lg shadow">
-            <h2 className="text-xl font-bold">{user.name}</h2>
-            <p className="text-gray-600">Email: {user.email}</p>
-            <p className="text-gray-600">Role: {user.role}</p>
-            <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-              Edit Role
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className=" bg-gray-200">
+    <Header1 />
+    <Buttons />
+    <div className="p-4 bg-gray-100">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-blue-500 hover:text-green-500 mb-4">
+        Customer Details
+      </h2>
+      <div className="overflow-x-auto">
+        <table className="border-2 border-gray-200 min-w-[800px] md:min-w-full">
+          <thead>
+            <tr className="bg-yellow-100 rounded border-2 border-gray-300">
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Sr. No
+              </th>
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Name
+              </th>
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Phone
+              </th>
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Email
+              </th>
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Date
+              </th>
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Performance
+              </th>
+              <th className="text-red-500 font-bold text-sm md:text-lg p-3">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {customers.map((customer) => (
+              <tr
+                key={customer.id}
+                className="bg-yellow-50 hover:bg-white border-2 border-gray-300"
+              >
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.srNo}
+                </td>
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.name}
+                </td>
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.phone}
+                </td>
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.email}
+                </td>
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.date}
+                </td>
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.performance}
+                </td>
+                <td className="text-black font-bold text-xs md:text-sm p-3">
+                  {customer.status}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <h6 className="text-gray-500 text-center mt-4">Author: Azmat Ali</h6>
     </div>
     <OurPromise />
     <Footer />
-    </>
+    </div>
   );
-}
+};
+
+export default CustomersList;

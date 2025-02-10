@@ -1,46 +1,88 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Header1 from '../../components/Header1';
+import Header1 from "../../components/Header1";
+import Buttons from "../../components/InventoryOrderUserButtons";
 import OurPromise from '../../components/OurPromise';
-import Footer from '../../components/Footer'
+import Footer from "../../components/Footer";
 
-// Define the type for an order
-interface Order {
-  id: string;
-  status: string;
-  total: number | string;
-}
-
-export default function OrdersPage() {
-  const [orders, setOrders] = useState<Order[]>([]);
-
-  useEffect(() => {
-    fetch("/api/orders") // Replace with your API endpoint
-      .then((response) => response.json())
-      .then((data) => setOrders(data));
-  }, []);
+const OrdersList = () => {
+  // Mock data - replace with actual API calls in a real application
+  const orders = [
+    { id: 1, customer: "John Doe", date: "2025-01-15", total: 599.98, status: "Shipped" },
+    { id: 2, customer: "Jane Smith", date: "2025-01-16", total: 149.99, status: "Processing" },
+    { id: 3, customer: "Bob Johnson", date: "2025-01-17", total: 999.97, status: "Delivered" },
+    { id: 4, customer: "Joseph Anthony", date: "2025-01-18", total: 599.98, status: "Shipped" },
+    { id: 5, customer: "Philip Cant", date: "2025-01-19", total: 149.99, status: "Processing" },
+    { id: 6, customer: "Kelvin Butler", date: "2025-01-20", total: 999.97, status: "Delivered" },
+    { id: 7, customer: "Paul Daniel", date: "2025-01-21", total: 599.98, status: "Shipped" },
+    { id: 8, customer: "Bob Baker", date: "2025-01-22", total: 149.99, status: "Processing" },
+    { id: 9, customer: "Ashly Hamton", date: "2025-01-23", total: 999.97, status: "Delivered" },
+    { id: 10, customer: "Domnic Filnay", date: "2025-01-24", total: 599.98, status: "Shipped" },
+    { id: 11, customer: "Keneth Willis", date: "2025-01-25", total: 149.99, status: "Processing" },
+    { id: 12, customer: "Robin Johnathon", date: "2025-01-26", total: 999.97, status: "Delivered" },
+  ];
 
   return (
-    <>
-        <Header1 />
-    <div className="p-6">
-      <h1 className="lg:text-3xl text-lg font-bold text-yellow-200">Order Management: Under Construction</h1>
-      <ul className="mt-6">
-        {orders.map((order) => (
-          <li key={order.id} className="mb-4 p-4 bg-white rounded-lg shadow">
-            <h2 className="text-xl font-bold">Order ID: {order.id}</h2>
-            <p className="text-gray-600">Status: {order.status}</p>
-            <p className="text-gray-600">Total: ${order.total}</p>
-            <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-              Update Status
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className="bg-gray-200">
+      <Header1 />
+      <Buttons />
+      <div className="px-4 py-6 bg-gray-100">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-blue-500 mb-4 hover:text-green-500">
+          Recent Orders
+        </h2>
+
+        {/* Horizontally Scrollable Container */}
+        <div className="overflow-x-auto">
+          <div className="min-w-[600px]">
+            {/* Table Header */}
+            <div className="flex bg-yellow-100 rounded border-2 border-gray-300">
+              <div className="flex-1 text-red-500 font-bold text-base md:text-xl p-3 min-w-[120px]">
+                Order ID
+              </div>
+              <div className="flex-1 text-red-500 font-bold text-base md:text-xl p-3 min-w-[150px]">
+                Customer
+              </div>
+              <div className="flex-1 text-red-500 font-bold text-base md:text-xl p-3 min-w-[120px]">
+                Date
+              </div>
+              <div className="flex-1 text-red-500 font-bold text-base md:text-xl p-3 min-w-[120px]">
+                Total
+              </div>
+              <div className="flex-1 text-red-500 font-bold text-base md:text-xl p-3 min-w-[120px]">
+                Status
+              </div>
+            </div>
+
+            {/* Table Rows */}
+            {orders.map((order) => (
+              <div
+                key={order.id}
+                className="flex bg-yellow-50 hover:bg-white transition-colors border-2 border-gray-300"
+              >
+                <div className="flex-1 text-black font-bold text-sm md:text-lg p-3 min-w-[120px]">
+                  {order.id}
+                </div>
+                <div className="flex-1 text-black font-bold text-sm md:text-lg p-3 min-w-[150px]">
+                  {order.customer}
+                </div>
+                <div className="flex-1 text-black font-bold text-sm md:text-lg p-3 min-w-[120px]">
+                  {order.date}
+                </div>
+                <div className="flex-1 text-black font-bold text-sm md:text-lg p-3 min-w-[120px]">
+                  $ {order.total.toFixed(2)}
+                </div>
+                <div className="flex-1 text-black font-bold text-[13px] md:text-lg p-3 min-w-[120px]">
+                  {order.status}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <h6 className="text-gray-500 text-center mt-4">Author: Azmat Ali</h6>
+      </div>
+      <OurPromise />
+      <Footer />
     </div>
-    <OurPromise />
-    <Footer />
-        </>
   );
-}
+};
+
+export default OrdersList;
